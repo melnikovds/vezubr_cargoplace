@@ -287,9 +287,6 @@ class CargoScenario(SequentialTaskSet):
                 old_payload = CargoPlacePayloadBuilder.cargo_place_list_feature(i, use_new=False)
                 new_payload = CargoPlacePayloadBuilder.cargo_place_list_feature(i, use_new=True)
 
-                print(old_payload)
-                print(new_payload)
-
                 resp_old = self.client.post("/v1/api/cargo-place/list/feature", json=old_payload)
                 resp_new = self.client.post("/v1/api/cargo-place/list/feature", json=new_payload)
 
@@ -308,7 +305,7 @@ class CargoScenario(SequentialTaskSet):
                     )
 
             # если это последняя итерация и всё ок
-            if label == "5 минут" and all_ok:
+            if label == "16 минут" and all_ok:
                 print("\n🏁 Итоговые проверки завершены — все адреса обработаны.")
                 self.user.environment.runner.quit()
 
